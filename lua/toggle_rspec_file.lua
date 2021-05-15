@@ -9,10 +9,18 @@ local function convert_filename(filename)
 end
 
 local function convert_directory(directory)
-  if string.find(directory, 'controllers') then
-    return string.gsub(directory, 'app/controllers', 'spec/requests')
+  local return_directory = ''
+  if string.find(directory, 'spec') then
+    return_directory = string.gsub(directory, 'spec', 'app')
   else
-    return string.gsub(directory, 'spec/requests', 'app/controllers')
+    return_directory = string.gsub(directory, 'app', 'spec')
+  end
+
+  -- convert controller_spec to request_spec
+  if string.find(return_directory, 'controllers') then
+    return string.gsub(return_directory, 'controllers', 'requests')
+  else
+    return string.gsub(return_directory, 'requests', 'controllers')
   end
 end
 
