@@ -9,7 +9,7 @@ local function convert_filename(filename)
 end
 
 local function convert_directory(directory)
-  if string.find(directory, 'controller') then
+  if string.find(directory, 'controllers') then
     return string.gsub(directory, 'app/controllers', 'spec/requests')
   else
     return string.gsub(directory, 'spec/requests', 'app/controllers')
