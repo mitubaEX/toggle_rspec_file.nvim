@@ -17,10 +17,10 @@ local function convert_directory(directory)
   end
 
   -- convert controller_spec to request_spec
-  if string.find(return_directory, 'controllers') then
-    return string.gsub(return_directory, 'controllers', 'requests')
+  if string.find(return_directory, 'spec/controllers') then
+    return string.gsub(return_directory, 'spec/controllers', 'spec/requests')
   else
-    return string.gsub(return_directory, 'requests', 'controllers')
+    return string.gsub(return_directory, 'spec/requests', 'spec/controllers')
   end
 end
 
