@@ -11,9 +11,9 @@ end
 local function convert_directory(directory)
   local return_directory = ''
   if string.find(directory, 'spec') then
-    return_directory = string.gsub(directory, 'spec', 'app')
+    return_directory = string.gsub(directory, 'spec/', 'app/')
   else
-    return_directory = string.gsub(directory, 'app', 'spec')
+    return_directory = string.gsub(directory, 'app/', 'spec/')
   end
 
   -- convert controller_spec to request_spec
